@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#f3eee7" />
+  <meta name="description" content="Ade John is a professional app developer building web and mobile apps for businesses, schools, and restaurants with FlutterFlow, Bubble, Adalo, and Glide." />
+  <title>Ade John — App Developer & Digital Product Builder</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --cream: #f3eee7;
+      --ink: #171614;
+      --muted: #766f66;
+      --gold: #b49a6a;
+      --line: rgba(23, 22, 20, .18);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--cream);
+      color: var(--ink);
+      font-family: "DM Sans", sans-serif;
+    }
+    a { color: inherit; text-decoration: none; }
+    .hero {
+      min-height: 740px;
+      position: relative;
+      overflow: hidden;
+      padding: 28px clamp(24px, 5.2vw, 84px) 64px;
+      isolation: isolate;
+      background:
+        radial-gradient(ellipse at 68% 45%, rgba(255,255,255,.55), transparent 42%),
+        var(--cream);
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      width: 48vw;
+      height: 48vw;
+      min-width: 420px;
+      min-height: 420px;
+      border: 1px solid rgba(180,154,106,.24);
+      border-radius: 50%;
+      right: 4%;
+      top: 13%;
+    }
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      position: relative;
+      z-index: 3;
+      font-size: 11px;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+    .brand { font-weight: 700; letter-spacing: .08em; }
+    .availability { display: flex; align-items: center; gap: 9px; color: var(--muted); }
+    .availability-dot {
+      width: 7px; height: 7px; border-radius: 50%;
+      background: #82916b; box-shadow: 0 0 0 4px rgba(130,145,107,.14);
+    }
+    .hero-word {
+      position: relative;
+      z-index: 0;
+      margin: 30px 0 0 -0.035em;
+      font: 400 clamp(82px, 15vw, 218px)/.82 "Playfair Display", serif;
+      letter-spacing: -.075em;
+      white-space: nowrap;
+    }
+    .hero-word span { display: block; }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(240px, 35%) 1fr;
+      gap: 24px;
+      position: relative;
+      min-height: 440px;
+      margin-top: 22px;
+    }
+    .intro {
+      align-self: center;
+      max-width: 340px;
+      position: relative;
+      z-index: 2;
+      padding-bottom: 24px;
+    }
+    .eyebrow {
+      color: var(--gold);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: .24em;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+    h1 {
+      font: 500 clamp(38px, 4.8vw, 68px)/1.02 "Playfair Display", serif;
+      letter-spacing: -.045em;
+      margin: 0 0 20px;
+    }
+    .intro p {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.8;
+      max-width: 330px;
+      margin: 0;
+    }
+    .gold-line { width: 42px; height: 2px; background: var(--gold); margin: 25px 0; }
+    .platforms {
+      font-size: 10px;
+      letter-spacing: .12em;
+      line-height: 1.9;
+      color: var(--muted);
+      text-transform: uppercase;
+    }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 14px;
+      padding: 13px 18px; border: 1px solid var(--ink);
+      font-size: 11px; letter-spacing: .08em; text-transform: uppercase;
+      transition: transform .2s ease, background .2s ease, color .2s ease;
+    }
+    .btn:hover { transform: translateY(-2px); }
+    .btn-primary { background: var(--ink); color: var(--cream); }
+    .btn-primary:hover { background: #37332d; }
+    .btn-secondary { border-color: var(--line); }
+    .portrait-wrap {
+      position: absolute;
+      right: 7%;
+      bottom: -64px;
+      width: min(47%, 520px);
+      height: 590px;
+      z-index: 1;
+      overflow: hidden;
+      border-radius: 48% 48% 0 0;
+      background: #d9cfc1;
+    }
+    .portrait-wrap img {
+      width: 100%; height: 100%; object-fit: cover; object-position: center 25%;
+      filter: saturate(.72) contrast(.98);
+      mix-blend-mode: multiply;
+    }
+    .portrait-label {
+      position: absolute; right: 2%; bottom: 35px; z-index: 2;
+      border: 1px solid rgba(180,154,106,.7);
+      border-radius: 50%; width: 118px; height: 118px;
+      display: grid; place-items: center; text-align: center;
+      color: var(--gold); background: rgba(243,238,231,.78);
+      font: 18px "Playfair Display", serif;
+      transform: rotate(9deg);
+    }
+    .portrait-label small {
+      display: block; font: 8px "DM Sans", sans-serif;
+      letter-spacing: .18em; text-transform: uppercase; color: var(--muted);
+      margin-top: 4px;
+    }
+    .hero-bottom {
+      position: absolute; left: clamp(24px, 5.2vw, 84px); bottom: 24px;
+      z-index: 3; display: flex; align-items: center; gap: 18px;
+      color: var(--muted); font-size: 10px; letter-spacing: .13em; text-transform: uppercase;
+    }
+    .hero-bottom .rule { width: 48px; height: 1px; background: var(--gold); }
+    @media (min-width: 1500px) { .hero { min-height: 850px; } }
+    @media (max-width: 760px) {
+      .hero { min-height: 780px; padding-bottom: 70px; }
+      .hero-word { font-size: clamp(66px, 17vw, 120px); margin-top: 42px; }
+      .hero-grid { display: block; min-height: 570px; margin-top: 24px; }
+      .intro { max-width: 82%; padding-top: 12px; }
+      .intro p { max-width: 270px; }
+      .portrait-wrap { width: 62%; height: 390px; right: -3%; bottom: -42px; opacity: .9; }
+      .portrait-label { width: 88px; height: 88px; right: 3%; bottom: 12px; font-size: 15px; }
+      .portrait-label small { font-size: 6px; }
+      .hero-bottom { bottom: 18px; }
+    }
+    @media (max-width: 420px) {
+      .topbar { font-size: 9px; }
+      .availability { letter-spacing: .08em; }
+      .hero-word { font-size: 17vw; }
+      .intro { max-width: 100%; }
+      .intro h1 { max-width: 250px; }
+      .intro p { max-width: 240px; font-size: 13px; }
+      .portrait-wrap { width: 68%; height: 330px; }
+      .hero-actions { gap: 8px; }
+      .btn { padding: 11px 13px; font-size: 9px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <section class="hero" id="home" aria-labelledby="hero-title">
+      <header class="topbar">
+        <a class="brand" href="#home">ADE JOHN <span style="color:var(--gold)">/</span> DIGITAL</a>
+        <div class="availability"><span class="availability-dot" aria-hidden="true"></span> Available for select projects</div>
+      </header>
+
+      <div class="hero-word" aria-hidden="true"><span>PORT</span><span>FOLIO.</span></div>
+
+      <div class="hero-grid">
+        <div class="intro">
+          <div class="eyebrow">App Developer · Digital Product Builder</div>
+          <h1 id="hero-title">I build apps that bring ideas to life.</h1>
+          <p>I help businesses, schools, and restaurants turn their ideas into beautiful, practical web and mobile apps—built with the right tools and a focus on real results.</p>
+          <div class="gold-line"></div>
+          <div class="platforms">FlutterFlow &nbsp;·&nbsp; Bubble &nbsp;·&nbsp; Adalo &nbsp;·&nbsp; Glide</div>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="mailto:hello@adejohn.com">Let's build your app <span aria-hidden="true">↗</span></a>
+            <a class="btn btn-secondary" href="#projects">Explore my work <span aria-hidden="true">↓</span></a>
+          </div>
+        </div>
+
+        <div class="portrait-wrap">
+          <!-- Replace this sample portrait with your own professional photo. -->
+          <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=1000&q=85" alt="Portrait placeholder for Ade John" />
+        </div>
+        <div class="portrait-label" aria-label="Ade John, app developer">
+          AJ
+          <small>Digital experiences</small>
+        </div>
+      </div>
+
+      <div class="hero-bottom">
+        <span class="rule"></span>
+        <span>3+ years experience</span>
+        <span>·</span>
+        <span>2,500+ clients served</span>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
