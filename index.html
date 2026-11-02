@@ -188,6 +188,106 @@
       .hero-actions { gap: 8px; }
       .btn { padding: 11px 13px; font-size: 9px; }
     }
+
+    /* Selected work section */
+    .work-section {
+      background: var(--ink);
+      color: var(--cream);
+      padding: 34px clamp(24px, 5.2vw, 84px) 58px;
+    }
+    .work-heading {
+      display: flex; align-items: center; gap: 22px;
+      margin-bottom: 28px;
+      font-size: 10px; letter-spacing: .18em; text-transform: uppercase;
+      color: var(--gold);
+    }
+    .work-heading .work-rule { flex: 1; height: 1px; background: rgba(180,154,106,.55); }
+    .work-heading a { color: var(--cream); white-space: nowrap; letter-spacing: .1em; }
+    .work-heading a span { color: var(--gold); margin-left: 8px; }
+    .work-grid {
+      display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px;
+    }
+    .project-card { min-width: 0; }
+    .project-preview {
+      min-height: 300px; aspect-ratio: 3 / 4;
+      border: 1px solid rgba(243,238,231,.35);
+      padding: 10px; overflow: hidden; position: relative;
+      display: flex; flex-direction: column;
+      transition: transform .25s ease, border-color .25s ease;
+    }
+    .project-card:hover .project-preview {
+      transform: translateY(-5px); border-color: var(--gold);
+    }
+    .preview-top {
+      display: flex; justify-content: space-between; gap: 8px;
+      font-size: 7px; letter-spacing: .12em; text-transform: uppercase;
+      color: rgba(243,238,231,.65);
+    }
+    .preview-content {
+      flex: 1; display: flex; flex-direction: column;
+      justify-content: center; padding: 18px 8px;
+    }
+    .preview-content h3 {
+      font: 400 clamp(22px, 2.8vw, 38px)/.98 "Playfair Display", serif;
+      margin: 0 0 12px; letter-spacing: -.04em;
+    }
+    .preview-content p {
+      font-size: 8px; line-height: 1.5; letter-spacing: .08em;
+      text-transform: uppercase; max-width: 150px; opacity: .72;
+    }
+    .preview-cta {
+      align-self: flex-start; margin-top: 12px;
+      border: 1px solid currentColor; border-radius: 20px;
+      padding: 6px 10px; font-size: 7px; letter-spacing: .1em; text-transform: uppercase;
+    }
+    .preview-footer {
+      display: flex; justify-content: space-between;
+      font-size: 7px; letter-spacing: .1em; text-transform: uppercase;
+      color: rgba(243,238,231,.65); border-top: 1px solid rgba(243,238,231,.18);
+      padding-top: 9px;
+    }
+    .project-preview.school { background: #e9dfd2; color: #29251f; }
+    .project-preview.school .preview-top,
+    .project-preview.school .preview-footer { color: rgba(41,37,31,.6); }
+    .project-preview.restaurant {
+      background: radial-gradient(circle at 70% 75%, #594a35, #1d1b18 48%, #111);
+    }
+    .project-preview.business {
+      background: linear-gradient(145deg, #292b2a, #101211);
+    }
+    .project-preview.booking {
+      background: #d9d2c8; color: #29251f;
+    }
+    .project-preview.booking .preview-top,
+    .project-preview.booking .preview-footer { color: rgba(41,37,31,.6); }
+    .project-label {
+      text-align: center; margin-top: 13px;
+      font-size: 10px; letter-spacing: .16em; text-transform: uppercase;
+    }
+    .project-type {
+      text-align: center; margin-top: 6px;
+      color: var(--gold); font-size: 8px; letter-spacing: .15em;
+      line-height: 1.8; text-transform: uppercase;
+    }
+    .work-note {
+      color: rgba(243,238,231,.55); font-size: 10px; line-height: 1.6;
+      margin: 24px 0 0; letter-spacing: .03em;
+    }
+    @media (max-width: 800px) {
+      .work-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px 14px; }
+      .project-preview { min-height: 280px; }
+      .preview-content h3 { font-size: clamp(25px, 5vw, 40px); }
+    }
+    @media (max-width: 420px) {
+      .work-section { padding-top: 28px; }
+      .work-heading { gap: 10px; font-size: 8px; }
+      .work-heading a { font-size: 8px; }
+      .work-grid { gap: 18px 10px; }
+      .project-preview { min-height: 230px; padding: 8px; }
+      .preview-content { padding: 12px 4px; }
+      .project-label { font-size: 9px; }
+    }
+
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
       *, *::before, *::after { transition: none !important; }
@@ -234,6 +334,82 @@
         <span>2,500+ clients served</span>
       </div>
     </section>
+
+    <section class="work-section" id="projects" aria-labelledby="work-title">
+      <div class="work-heading">
+        <span id="work-title">Selected app concepts</span>
+        <span class="work-rule"></span>
+        <a href="#contact">Discuss a project <span aria-hidden="true">→</span></a>
+      </div>
+
+      <div class="work-grid">
+        <article class="project-card">
+          <a href="#contact" aria-label="Discuss a business app project">
+            <div class="project-preview business">
+              <div class="preview-top"><span>AJ Digital / 01</span><span>Business</span></div>
+              <div class="preview-content">
+                <h3>Built for<br>business.</h3>
+                <p>Operations · Client management · Growth</p>
+                <span class="preview-cta">Explore concept ↗</span>
+              </div>
+              <div class="preview-footer"><span>Web & mobile app</span><span>2026</span></div>
+            </div>
+            <div class="project-label">Business app</div>
+            <div class="project-type">Workflow · Productivity</div>
+          </a>
+        </article>
+
+        <article class="project-card">
+          <a href="#contact" aria-label="Discuss a school app project">
+            <div class="project-preview school">
+              <div class="preview-top"><span>AJ Digital / 02</span><span>Education</span></div>
+              <div class="preview-content">
+                <h3>Learning<br>made simple.</h3>
+                <p>Students · Parents · School teams</p>
+                <span class="preview-cta">Explore concept ↗</span>
+              </div>
+              <div class="preview-footer"><span>School app</span><span>2026</span></div>
+            </div>
+            <div class="project-label">School app</div>
+            <div class="project-type">Education · Community</div>
+          </a>
+        </article>
+
+        <article class="project-card">
+          <a href="#contact" aria-label="Discuss a restaurant app project">
+            <div class="project-preview restaurant">
+              <div class="preview-top"><span>AJ Digital / 03</span><span>Hospitality</span></div>
+              <div class="preview-content">
+                <h3>Savor<br>the moment.</h3>
+                <p>Menus · Orders · Reservations</p>
+                <span class="preview-cta">Explore concept ↗</span>
+              </div>
+              <div class="preview-footer"><span>Restaurant app</span><span>2026</span></div>
+            </div>
+            <div class="project-label">Restaurant app</div>
+            <div class="project-type">Food · Hospitality</div>
+          </a>
+        </article>
+
+        <article class="project-card">
+          <a href="#contact" aria-label="Discuss a booking and service app project">
+            <div class="project-preview booking">
+              <div class="preview-top"><span>AJ Digital / 04</span><span>Services</span></div>
+              <div class="preview-content">
+                <h3>One tap<br>to connect.</h3>
+                <p>Bookings · Payments · Customer experience</p>
+                <span class="preview-cta">Explore concept ↗</span>
+              </div>
+              <div class="preview-footer"><span>Service app</span><span>2026</span></div>
+            </div>
+            <div class="project-label">Service app</div>
+            <div class="project-type">Booking · Customer experience</div>
+          </a>
+        </article>
+      </div>
+      <p class="work-note">These are visual placeholders to establish the portfolio layout. Replace them with screenshots and details from your real projects before publishing them as completed work.</p>
+    </section>
+
   </main>
 </body>
 </html>
