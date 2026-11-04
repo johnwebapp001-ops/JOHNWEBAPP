@@ -345,6 +345,52 @@
       .whatsapp-float { right:14px; bottom:14px; padding:12px 15px; font-size:10px; }
     }
 
+    /* Mobile layout refinements: prevent overlapping and cramped sections */
+    @media (max-width: 600px) {
+      .hero { min-height: auto; padding: 22px 20px 28px; overflow: hidden; }
+      .topbar { align-items: flex-start; flex-wrap: wrap; gap: 12px; font-size: 9px; }
+      .availability { font-size: 8px; letter-spacing: .06em; }
+      .hero-word { font-size: clamp(58px, 19vw, 100px); line-height: .88; margin: 38px 0 20px; white-space: normal; letter-spacing: -.07em; }
+      .hero-word span { display: inline; }
+      .hero-grid { display: flex; flex-direction: column; min-height: 0; gap: 24px; margin-top: 0; }
+      .intro { max-width: 100%; padding: 0; align-self: stretch; }
+      .intro h1 { max-width: 100%; font-size: clamp(36px, 10vw, 52px); }
+      .intro p { max-width: 100%; font-size: 13px; }
+      .hero-actions { display: grid; grid-template-columns: 1fr; align-items: stretch; gap: 10px; }
+      .hero-actions .btn { width: 100%; min-height: 46px; }
+      .portrait-wrap { position: relative; right: auto; bottom: auto; width: min(78%, 320px); height: 300px; margin: 0 auto; opacity: 1; }
+      .portrait-label { right: 4%; bottom: 12px; width: 78px; height: 78px; font-size: 14px; }
+      .hero-bottom { position: relative; left: auto; bottom: auto; flex-wrap: wrap; gap: 10px; margin-top: 24px; font-size: 8px; }
+      .hero-bottom .rule { width: 28px; }
+      .work-section, .services-section, .contact-section, .contact-form-section { padding: 42px 20px; }
+      .work-heading { align-items: flex-start; flex-wrap: wrap; }
+      .work-heading .work-rule { display: none; }
+      .work-heading a { white-space: normal; }
+      .work-grid { grid-template-columns: 1fr; gap: 24px; }
+      .project-preview { aspect-ratio: 4 / 3; min-height: 0; }
+      .preview-content h3 { font-size: clamp(30px, 9vw, 42px); }
+      .preview-top, .preview-footer { font-size: 8px; }
+      .project-label { font-size: 10px; }
+      .project-type { font-size: 9px; }
+      .services-title, .contact-form-title { font-size: clamp(38px, 10vw, 58px); }
+      .services-grid { grid-template-columns: 1fr; }
+      .service, .service + .service, .service:nth-child(2n), .service:nth-child(3) { padding: 20px 0; border-left: 0; }
+      .service h3 { margin-top: 12px; }
+      .contact-layout { grid-template-columns: 1fr; gap: 24px; }
+      .contact-title { font-size: clamp(48px, 13vw, 72px); }
+      .contact-footer { gap: 10px; margin-top: 38px; line-height: 1.7; }
+      .contact-form { grid-template-columns: 1fr; gap: 14px; }
+      .form-field.full, .contact-form button { grid-column: auto; }
+      .form-field input, .form-field select, .form-field textarea { font-size: 16px; padding: 13px; }
+      .whatsapp-float { right: 12px; bottom: 12px; padding: 12px 14px; }
+    }
+    @media (max-width: 360px) {
+      .hero-word { font-size: 18vw; }
+      .hero { padding-left: 16px; padding-right: 16px; }
+      .work-section, .services-section, .contact-section, .contact-form-section { padding-left: 16px; padding-right: 16px; }
+      .whatsapp-float { font-size: 9px; padding: 11px 12px; }
+    }
+
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
       *, *::before, *::after { transition: none !important; }
