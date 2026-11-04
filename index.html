@@ -314,6 +314,22 @@
       .contact-footer { flex-direction:column; }
     }
 
+
+    .contact-form-section { background: #e8e0d5; color: var(--ink); padding: 72px clamp(24px,5.2vw,84px); }
+    .contact-form-wrap { max-width: 820px; }
+    .contact-form-title { font:400 clamp(42px,7vw,78px)/.98 "Playfair Display",serif; letter-spacing:-.05em; margin:16px 0 14px; }
+    .contact-form-intro { color:var(--muted); font-size:13px; line-height:1.8; max-width:520px; margin-bottom:30px; }
+    .contact-form { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:18px; }
+    .form-field { display:flex; flex-direction:column; gap:8px; }
+    .form-field.full { grid-column:1/-1; }
+    .form-field label { font-size:10px; letter-spacing:.12em; text-transform:uppercase; }
+    .form-field input, .form-field select, .form-field textarea { width:100%; border:1px solid rgba(23,22,20,.25); background:rgba(243,238,231,.55); padding:14px; color:var(--ink); font:13px "DM Sans",sans-serif; border-radius:0; }
+    .form-field textarea { min-height:150px; resize:vertical; }
+    .form-field input:focus, .form-field select:focus, .form-field textarea:focus { outline:2px solid var(--gold); outline-offset:2px; }
+    .contact-form button { grid-column:1/-1; justify-self:start; cursor:pointer; }
+    .form-note { color:var(--muted); font-size:10px; line-height:1.6; margin-top:12px; }
+    @media(max-width:600px) { .contact-form { grid-template-columns:1fr; } .form-field.full,.contact-form button { grid-column:auto; } }
+
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
       *, *::before, *::after { transition: none !important; }
@@ -338,7 +354,7 @@
           <div class="gold-line"></div>
           <div class="platforms">FlutterFlow &nbsp;·&nbsp; Bubble &nbsp;·&nbsp; Adalo &nbsp;·&nbsp; Glide</div>
           <div class="hero-actions">
-            <a class="btn btn-primary" href="mailto:hello@adejohn.com">Let's build your app <span aria-hidden="true">↗</span></a>
+            <a class="btn btn-primary" href="mailto:johnwebapp@gmail.com">Let's build your app <span aria-hidden="true">↗</span></a>
             <a class="btn btn-secondary" href="#projects">Explore my work <span aria-hidden="true">↓</span></a>
           </div>
         </div>
@@ -453,18 +469,39 @@
           <div class="section-kicker">Have an idea?</div>
           <h2 class="contact-title" id="contact-title">Let’s make<br>it happen.</h2>
           <p class="contact-copy">Have an app idea for your business, school, restaurant, or startup? Tell me what you’re imagining and let’s explore how to bring it to life.</p>
-          <a class="contact-link" href="mailto:hello@adejohn.com">Start a conversation <span aria-hidden="true">↗</span></a>
+          <a class="contact-link" href="mailto:johnwebapp@gmail.com">Start a conversation <span aria-hidden="true">↗</span></a>
           <div class="contact-copy" style="margin-top:24px;">
             <strong style="color:var(--cream); display:block; margin-bottom:10px;">Call or WhatsApp</strong>
             <a href="tel:+2349022153176">+234 902 215 3176</a><br>
-            <a href="https://wa.me/2349022153176" target="_blank" rel="noopener noreferrer">WhatsApp the first number ↗</a><br><br>
+            <a href="https://wa.me/2349022153176" target="_blank" rel="noopener noreferrer">WhatsApp ↗</a><br><br>
             <a href="tel:+2349048067339">+234 904 806 7339</a><br>
-            <a href="https://wa.me/2349048067339" target="_blank" rel="noopener noreferrer">WhatsApp the second number ↗</a>
+            <a href="https://wa.me/2349048067339" target="_blank" rel="noopener noreferrer">WhatsApp ↗</a><br><br>
+            <a href="mailto:johnwebapp@gmail.com">johnwebapp@gmail.com</a>
           </div>
         </div>
         <a class="btn btn-secondary" href="#home">Back to top ↑</a>
       </div>
       <footer class="contact-footer"><span>© 2026 Ade John / Digital</span><span>Built with care · Web & mobile apps</span></footer>
+    </section>
+
+    <section class="contact-form-section" id="contact-form" aria-labelledby="contact-form-title">
+      <div class="contact-form-wrap">
+        <div class="section-kicker">Contact / Project inquiry</div>
+        <h2 class="contact-form-title" id="contact-form-title">Tell me about your project.</h2>
+        <p class="contact-form-intro">Fill in the details below and send me your inquiry. I’ll get back to you by email.</p>
+        <form class="contact-form" action="https://formsubmit.co/johnwebapp@gmail.com" method="POST">
+          <input type="hidden" name="_subject" value="New portfolio project inquiry">
+          <input type="hidden" name="_captcha" value="true">
+          <input type="hidden" name="_template" value="table">
+          <div class="form-field"><label for="client-name">Your name *</label><input id="client-name" name="name" type="text" autocomplete="name" required placeholder="Full name"></div>
+          <div class="form-field"><label for="client-email">Email address *</label><input id="client-email" name="email" type="email" autocomplete="email" required placeholder="you@example.com"></div>
+          <div class="form-field"><label for="client-phone">Phone / WhatsApp</label><input id="client-phone" name="phone" type="tel" autocomplete="tel" placeholder="Your contact number"></div>
+          <div class="form-field"><label for="project-type">What do you need? *</label><select id="project-type" name="project type" required><option value="" disabled selected>Select a service</option><option>Mobile app</option><option>Website / web app</option><option>Business app</option><option>School app</option><option>Restaurant app</option><option>Booking / service app</option><option>Other</option></select></div>
+          <div class="form-field full"><label for="project-details">Tell me about your project *</label><textarea id="project-details" name="project details" required placeholder="What are you looking to build? What features do you need?"></textarea></div>
+          <button class="btn btn-primary" type="submit">Send inquiry ↗</button>
+        </form>
+        <p class="form-note">This form is handled by FormSubmit. The first submission may require you to confirm your email address with FormSubmit before messages begin arriving.</p>
+      </div>
     </section>
 
   </main>
